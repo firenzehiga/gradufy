@@ -13,11 +13,6 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/fontawesome-free/css/all.min.css">
     <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet"
-        href="{{ asset('AdminLTE') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('AdminLTE') }}/dist/css/adminlte.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('edustage') }}/css/bootstrap.css" />
@@ -40,8 +35,8 @@
                     <a class="navbar-brand logo_h" href="index.html">
                         <img src="{{ asset('edustage') }}/img/logo1.png" style="width:50px; height:50px;"
                             alt="Logo gradufy" />
-                        </a>
-                        <h3 style="font-size: 30px; font-weight: bold;">GRADUFY</h3>
+                    </a>
+                    <h3 style=" font-size: 30px; font-weight: bold;">GRADUFY</h3>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -121,18 +116,18 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
+                <!-- Card Sesi Bimbingan -->
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="single_feature card bg-info">
-                        <div class="icon"><i class="fas fa-calendar-week fa-3x icon-black"></i></div>
-                        <!-- Ganti dengan ikon Font Awesome -->
+                        <div class="icon mt-3">
+                            <i class="fas fa-calendar-week fa-3x icon-black"></i>
+                        </div>
                         <div class="desc">
                             <h4 class="mt-3 mb-2">Sesi Bimbingan Mendatang</h4>
-                            @if ($jadwalbmb && $jadwalbmb->tanggal->isToday())
-
+                            @if ($jadwalbmb || $jadwalbmb->tanggal->isToday())
                                 <p>Tanggal: {{ $jadwalbmb->tanggal->isoFormat('dddd') }}
-                                    {{ $jadwalbmb->tanggal->format('Y-m-d') }}</p>{{-- Mengambi Hari dan tanggal saja --}}
-                                <p>Jam: {{ $jadwalbmb->tanggal->format('H:i') }}</p> {{-- Mengambi Jamnya saja --}}
-
+                                    {{ $jadwalbmb->tanggal->format('Y-m-d') }}</p>
+                                <p>Jam: {{ $jadwalbmb->tanggal->format('H:i') }}</p>
                                 <p>
                                     Status:
                                     @if ($jadwalbmb->status === 'Menunggu Disetujui')
@@ -150,44 +145,51 @@
                                     @endif
                                 </p>
                             @else
-                                <p>Belum ada pengajuan bimbingan.</p>
+                                <p class="text-center">Belum ada pengajuan bimbingan.</p>
                             @endif
                         </div>
-                        <a href="/jadwalBimbingan" class="">
-                            More info <i class="fas fa-arrow-circle-right"></i>
-                        </a>
+                        <div class="text-center mb-3">
+                            <a href="/jadwalBimbingan" class="text-white">
+                                More info <i class="fas fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <!-- Card Dosen Pembimbing -->
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="single_feature card bg-info">
-                        <div class="icon">
+                        <div class="icon mt-3">
                             <i class="fas fa-user-tie fa-3x icon-black"></i>
                         </div>
-                        <div class="desc">
+                        <div class="desc" >
                             <h4 class="mt-3 mb-2">Dosen Pembimbing</h4>
                             <div class="row">
-                                <label for="" class="col-sm-4 ">Nama :</label>
-                                <span>{{ $dosenPembimbing->nama }}</span>
+                                <label for="" class="col-4 font-weight-bold">Nama</label>
+                                <span>:</span>
+                                <span class="col-6">{{ $dosenPembimbing->nama }}</span>
                             </div>
                             <div class="row">
-                                <label for="" class="col-sm-4 ">NIP :</label>
-                                <span>{{ $dosenPembimbing->nip }}</span>
+                                <label for="" class="col-4 font-weight-bold">NIP </label>
+                                <span>:</span>
+
+                                <span class="col-6">{{ $dosenPembimbing->nip }}</span>
                             </div>
                             <div class="row">
-                                <label for="" class="col-sm-4 ">Email :</label>
-                                <span>{{ $dosenPembimbing->email }}</span>
+                                <label for="" class="col-4 font-weight-bold">Email </label>
+                                <span>:</span>
+                                <span class="col-6">{{ $dosenPembimbing->email }}</span>
                             </div>
                             <div class="row">
-                                <label for="" class="col-sm-4 ">Telepon :</label>
-                                <span>{{ $dosenPembimbing->telepon }}</span>
+                                <label for="" class="col-4 font-weight-bold">Telepon </label>
+                                <span>:</span>
+                                <span class="col-6">{{ $dosenPembimbing->telepon }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
+
         </div>
     </section>
     <!--================ End Feature Area =================-->
