@@ -37,7 +37,7 @@
                 <a class="navbar-brand logo_h" href="index.html">
                     <img src="{{ asset('edustage') }}/img/logo1.png" style="width:50px; height:50px;" alt="Logo Gradufy"/> 
                 </a>
-                <h3 style="font-family: 'Pacifico', cursive; font-size: 30px; font-weight: bold; color: #fff">GRADUFY</h3>
+                <h3 style="font-size: 30px; font-weight: bold; color: #fff">GRADUFY</h3>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">

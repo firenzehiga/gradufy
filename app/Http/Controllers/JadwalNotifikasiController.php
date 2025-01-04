@@ -12,8 +12,6 @@ class JadwalNotifikasiController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        $dosenId = $user->dosen_id;
 
         $today = now()->format('Y-m-d');
         $threedaysLater = now()->addDays(3)->format('Y-m-d');
@@ -21,7 +19,6 @@ class JadwalNotifikasiController extends Controller
         $jadwalnoti = JadwalNotifikasi::where('id', '!=', null)
         ->where('status', '=', 'Disetujui')
         ->whereBetween('tanggal', [$today, $threedaysLater])
-        ->where('dosen_id', $dosenId)
         ->get();
 
         // Mendapatkan user yang sedang login
