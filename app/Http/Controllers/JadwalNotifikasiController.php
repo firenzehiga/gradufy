@@ -38,10 +38,7 @@ class JadwalNotifikasiController extends Controller
     }
 
     public function kirimReminder()
-    {
-        $user = Auth::user();
-        $dosenId = $user->dosen_id;
-        
+    {        
         $today = now()->format('Y-m-d');
         $todayTime = strtotime((date('Y-m-d')));
         $threedaysLater = now()->addDays(3)->format('Y-m-d');
@@ -50,7 +47,6 @@ class JadwalNotifikasiController extends Controller
         $jadwalnoti = JadwalNotifikasi::where('id', '!=', null)
         ->where('status', '=', 'Disetujui')
         ->whereBetween('tanggal', [$today, $threedaysLater])
-        ->where('dosen_id', $dosenId)
         ->get();
         
         foreach ($jadwalnoti as $jwb) {
@@ -136,8 +132,6 @@ Salam,
 
     public function sedangBimbingan()
     {
-        $user = Auth::user();
-        $dosenId = $user->dosen_id;
         
         $today = now()->format('Y-m-d');
 
@@ -145,7 +139,6 @@ Salam,
         $jadwalnoti = JadwalNotifikasi::where('id', '!=', null)
         ->where('status', 'Disetujui')
         ->where(DB::raw('DATE(tanggal)'), $today)
-        ->where('dosen_id', $dosenId)
         ->get();
 
         foreach ($jadwalnoti as $jwb) {
