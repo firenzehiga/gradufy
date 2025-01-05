@@ -185,7 +185,7 @@
             <nav class="navbar navbar-expand-lg  ">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html">
+                    <a class="navbar-brand logo_h" href="{{ route('mahasiswa.dashboard')}}">
                         <img src="{{ asset('edustage') }}/img/logo1.png" style="width:50px; height:50px;"
                             alt="Logo gradufy" />
                     </a>
