@@ -21,32 +21,32 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-        <div class="row">
-            <div class="col-md-6" style="margin-left: 250px">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
                 <div class="card card-info" >
                 <div class="card-header">
                     <h3 class="card-title">Detail Pengajuan Jadwal</h3>
                 </div>
                 <div class="card-body">
                     <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-4 col-form">Nama Lengkap:</label>
+                        <label for="inputEmail3" class="col-sm-4 col-5 col-form">Nama Lengkap:</label>
                         <span>{{ $jadwalbmb->mahasiswa->nama }}</span>
                     </div>
                     <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-4 col-form">NIM:</label>
+                        <label for="inputEmail3" class="col-sm-4 col-5 col-form">NIM:</label>
                         <span>{{ $jadwalbmb->mahasiswa->nim }}</span>
                     </div>
                     <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-4 col-form">Tanggal Pengajuan :</label>
+                        <label for="inputEmail3" class="col-sm-4 col-5 col-form">Tgl Pengajuan :</label>
                         <span>{{ $jadwalbmb->tanggal->isoFormat('dddd') }} {{ $jadwalbmb->tanggal->format('Y-m-d ') }}</span>
                     </div>
                     <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-4 col-form">Jam :</label>
+                        <label for="inputEmail3" class="col-sm-4 col-5 col-form">Jam :</label>
                         <span>{{ $jadwalbmb->tanggal->format('H:i') }}</span>
                     </div>
 
                     <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-4 col-form">Deskripsi :</label>
+                        <label for="inputEmail3" class="col-sm-4 col-5 col-form">Deskripsi :</label>
                         <span>{{ $jadwalbmb->deskripsiBimbingan }}</span>
                     </div>
                     {{-- Jika Statusnya "Jadwal Direvisi" maka alasannya akan tampil --}}

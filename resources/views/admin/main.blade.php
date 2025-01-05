@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('edustage') }}/img/favicon.ico" type="ico" />
     <title>Sistem Reminder | Gradufy</title>
 
@@ -30,7 +31,7 @@
 </head>
 
 <!--================ Body Area =================-->
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
         @include('admin.partials.navbar_dosen')
@@ -115,6 +116,7 @@
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
+                
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
     </script>

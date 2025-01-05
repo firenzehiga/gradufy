@@ -29,10 +29,10 @@
                     </div>
 
                     <!-- /.card-header -->
-                    <div class="card-body table-responsive">
+                    <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
-                                <tr>
+                                <tr align="center">
                                     <th>No</th>
                                     <th>Tanggal Bimbingan</th>
                                     <th>Feedback</th>
@@ -41,7 +41,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($riwayatbmb as $rwt)
-                                    <tr>
+                                    <tr align="center">
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $rwt->tanggal->isoFormat('dddd, D MMMM Y') }}</td>
                                         <td>{{ $rwt->umpanBalik }}</td>

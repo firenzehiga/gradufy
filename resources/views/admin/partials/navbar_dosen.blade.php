@@ -15,7 +15,7 @@
             </a>
         </li>
         <!-- Display User Role and Name -->
-        <li class="nav-item">
+        <li class="nav-item d-none d-sm-inline-block">
             @if (Auth::check()) <!-- Pastikan pengguna sudah login -->
                 <span class="navbar-text">
                     Welcome, Pak {{ $dosen->nama }}

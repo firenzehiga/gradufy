@@ -1,4 +1,136 @@
 @include('admin.partials.header')
+<style>
+    .cardi {
+        --font-color: #323232;
+        --font-color-sub: #8d8686;
+        --bg-color: #fff;
+        --main-color: #b3b3b3;
+        width: 250px;
+        height: 254px;
+        background: var(--bg-color);
+        border: 2px solid var(--main-color);
+        box-shadow: 4px 4px var(--main-color);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cardi-photo {
+        /* clear and add new css */
+        transform: scale(0.3) translate(220px, 230px);
+        width: 250px;
+        height: 250px;
+        margin-left: -125px;
+        margin-top: -125px;
+        background-image: url('{{ asset('edustage') }}/img/features/f1.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* Memastikan gambar masuk ke dalam area tanpa terpotong */
+        background-position: center;
+        /* Memastikan gambar terpusat */
+        border-radius: 30%;
+    }
+
+
+    /* delete */
+    .cardi-photo::before {
+        display: block;
+        content: '';
+        position: absolute;
+        box-sizing: border-box;
+        width: 160px;
+        height: 200px;
+        left: 50%;
+        top: -10%;
+        margin-left: -80px;
+        background-repeat: no-repeat;
+        border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+    }
+
+    /* delete */
+    .cardi-photo::after {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 2.5em;
+        height: .8em;
+        left: 28.5%;
+        top: 26%;
+        border-radius: .3em;
+    }
+
+    .cardi-title {
+        text-align: center;
+        color: var(--font-color);
+        font-size: 20px;
+        font-weight: 400;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .cardi-title span {
+        font-size: 15px;
+        color: var(--font-color-sub);
+    }
+
+    .cardi-socials {
+        display: flex;
+        height: 0;
+        opacity: 0;
+        margin-top: 20px;
+        gap: 20px;
+        transition: 0.5s;
+    }
+
+    .cardi-socials-btn {
+        width: 25px;
+        height: 25px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .cardi-socials-btn svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--main-color);
+    }
+
+    .cardi:hover>.cardi-socials {
+        opacity: 1;
+        height: 35px;
+    }
+
+    .cardi-socials-btn:hover {
+        transform: translateY(-5px);
+        transition: all 0.15s;
+    }
+
+    .cardi-photo:hover {
+        transition: 0.3s;
+        transform: scale(0.4) translate(160px, 150px);
+    }
+
+    @media only screen and (max-width: 900px) {
+        .cardi {
+
+        width: 100%;
+        height: 254px;
+        background: var(--bg-color);
+        border: 2px solid var(--main-color);
+        box-shadow: 4px 4px var(--main-color);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5%;
+    }
+    
+  
+    }
+</style>
 <!--================ Start Home Banner Area =================-->
 <section class="detail_banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -20,8 +152,21 @@
         <!-- Main content -->
         <div class="row">
             <div class="col-md-3">
+                <div class="cardi">
+                    <div class="cardi-photo"></div>
+                    <div class="cardi-title">{{ $mahasiswa->nama }} <br>
+                        <span>{{ $mahasiswa->jurusan }}</span><br>
+                        <span>{{ $mahasiswa->nim }}</span>
+                    </div>
+                    <div class="cardi-socials">
+                        <span>
+                            {{ $mahasiswa->email }}
+                        </span>
+                    </div>
+                </div>
+
                 <!-- Profile Image -->
-                <div class="card card-primary card-outline">
+                {{-- <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
 
                         <h3 class="profile-username text-center">{{ $mahasiswa->nama }}</h3>
@@ -43,7 +188,7 @@
                     </div>
                     <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
+                <!-- /.card --> --}}
             </div>
             <!-- /.col -->
             <div class="col-md-9">

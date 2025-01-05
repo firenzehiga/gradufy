@@ -36,13 +36,11 @@
                         @endif
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body table-responsive">
+                    <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
-                                <tr>
+                                <tr align="center">
                                     <th>No</th>
-                                    <th>Nama</th>
-                                    <th>NIM</th>
                                     <th>Tanggal Pengajuan Bimbingan</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -50,10 +48,8 @@
                             </thead>
                             <tbody>
                                 @foreach ($jadwalbmb as $jwb)
-                                    <tr>
+                                    <tr align="center">
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $jwb->mahasiswa->nama }}</td>
-                                        <td>{{ $jwb->mahasiswa->nim }}</td>
                                         <td>{{ $jwb->tanggal->isoFormat('dddd, D MMMM Y') }}</td>
 
                                         @if ($jwb->status === 'Menunggu Disetujui')
@@ -74,7 +70,7 @@
                                         @else
                                             <td><span class="badge badge-danger">Kesalahan Status</span></td>
                                         @endif
-                                        <td class="d-flex">
+                                        <td>
                                             <a href="/jadwalBimbingan/detail/{{ $jwb->id }}"
                                                 class="btn btn-primary me-2">Detail</a>
                                         </td>

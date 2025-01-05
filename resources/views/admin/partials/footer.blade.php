@@ -11,23 +11,35 @@
  <!--================ End footer Area  =================-->
 
  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
- <script src="{{ asset('edustage') }}/js/jquery-3.2.1.min.js"></script>
+
+ <!-- JavaScript Files -->
+ <script src="{{ asset('AdminLTE') }}/plugins/jquery/jquery.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/datatables/jquery.dataTables.min.js"></script>
+ <script src="{{ asset('AdminLTE') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+ <script src="{{ asset('AdminLTE') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+ <script src="{{ asset('AdminLTE') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
+ <script src="{{ asset('AdminLTE') }}/plugins/fullcalendar/main.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+ <script src="{{ asset('AdminLTE') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+ <script src="{{ asset('AdminLTE') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+ <script src="{{ asset('AdminLTE') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/moment/moment.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/daterangepicker/daterangepicker.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+ <script src="{{ asset('AdminLTE') }}/dist/js/adminlte.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/inputmask/jquery.inputmask.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/dropzone/min/dropzone.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/select2/js/select2.full.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/jquery-validation/jquery.validate.min.js"></script>
  <script src="{{ asset('AdminLTE') }}/plugins/jquery-validation/additional-methods.min.js"></script>
- <script src="{{ asset('AdminLTE') }}/dist/js/adminlte.js"></script>
+ <script src="{{ asset('edustage') }}/js/theme.js"></script>
+
  <script src="{{ asset('Login') }}/js/sweetalert2.min.js"></script>
+
  <script>
      $(document).ready(function() {
 
