@@ -106,20 +106,34 @@ class JadwalBimbinganController extends Controller
         $dosenName  = $dosen->nama;             // ambil nama dosen pembimbing
         $dosenPhone = $dosen->telepon;         // ambil telepon dosen pembimbing
 
+        $mahasiswaName  = $mahasiswa->nama; // Ambil nama mahasiswa
+        $mahasiswaPhone = $mahasiswa->telepon; // Ambil telepon mahasiswa
 
 
         // Pesan Whatssapp yang akan dikirim
-        $message = "*Subject: Reminder Jadwal Bimbingan Skripsi*
+        $messageDsn = "*Subject: Pengajuan Bimbingan TA*
 Halo, Pak $dosenName.
 
-Terdapat pengajuan bimbingan baru yang perlu anda persetujui.
+Terdapat pengajuan bimbingan baru yang perlu anda setujui.
 
 Mohon segera mengunjungi sistem Gradufy untuk persetujuan.
        
 Salam,
 [Tim Reminder Gradufy]";
 
-        $this->sendMessage($dosenPhone, $message);
+// Pesan Whatssapp yang akan dikirim
+$messageMhs = "*Subject: Reminder Jadwal Bimbingan Skripsi*
+Halo, $mahasiswaName.
+
+Pengajuan bimbingan anda telah berhasil dan sudah terkirim ke dosen pembimbing anda.
+
+Silahkan tunggu pemberitahuan selanjutnya. Terima kasih 😊
+       
+Salam,
+[Tim Reminder Gradufy]";
+
+        $this->sendMessage($dosenPhone, $messageDsn);
+        $this->sendMessage($mahasiswaPhone, $messageMhs);
         
         return redirect()->route('mahasiswa.jadwalBimbingan')->with('berhasil', 'Pengajuan bimbingan berhasil dibuat dan menunggu persetujuan dosen.');
     }
