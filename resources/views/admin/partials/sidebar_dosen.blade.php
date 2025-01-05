@@ -8,7 +8,7 @@
                 <img src="{{ asset('Login') }}/images/logo1.png" class="img-circle" alt="graufy logo">
             </div>
             <div class="info">
-                <a href="{{ route('dosen.dashboard') }}" class="d-block" style="font-family: 'Pasifico', cursive;">GRADUFY</a>
+                <a href="{{ route('dosen.dashboard') }}" class="d-block">GRADUFY</a>
             </div>
         </div>
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview">

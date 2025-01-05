@@ -22,17 +22,25 @@
             <div class="col-md-3">
                 <!-- Profile Image -->
                 <div class="card card-primary card-outline">
-                  <div class="blog_right_sidebar">
-                    <aside class="single_sidebar_widget author_widget">
-                        <h4>{{$mahasiswa->nama}}</h4>
-                        <p>{{$mahasiswa->nim}}</p>
-                        <p>{{$mahasiswa->email}}</p>
-                        <div class="br"></div>
-                        <p>{{$mahasiswa->telepon}}</p>
-                        <p>{{$mahasiswa->alamat}}</p>
-                    </aside>
+                    <div class="card-body box-profile">
 
-                </div>
+                        <h3 class="profile-username text-center">{{ $mahasiswa->nama }}</h3>
+
+                        <p class="text-muted text-center">{{ $mahasiswa->jurusan }}</p>
+
+                        <ul class="list-group list-group-unbordered mb-3">
+                            <li class="list-group-item">
+                                <label>NIM</label> <a class="float-right">{{ $mahasiswa->nim }}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <label>Email</label> <a class="float-right">{{ $mahasiswa->email }}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <label>Telepon</label> <a class="float-right">{{ $mahasiswa->telepon }}</a>
+                            </li>
+                        </ul>
+
+                    </div>
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
@@ -64,7 +72,7 @@
                                     </label>
                                     <div class="col-sm-10">
                                         <input type="email" class="form-control" id="nama" placeholder="Name"
-                                            value="{{$mahasiswa->nama}}" disabled />
+                                            value="{{ $mahasiswa->nama }}" disabled />
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -73,10 +81,11 @@
                                     </label>
                                     <div class="col-sm-10">
                                         <input type="number" class="form-control" id="nip" placeholder="NIM"
-                                            value="{{$mahasiswa->nim}}" disabled />
+                                            value="{{ $mahasiswa->nim }}" disabled />
                                     </div>
                                 </div>
-                                <form class="form-horizontal" method="POST" action="{{ route('profile.mahasiswa.update') }}">
+                                <form class="form-horizontal" method="POST"
+                                    action="{{ route('profile.mahasiswa.update') }}">
                                     @csrf
                                     @method('PATCH')
                                     <div class="form-group row">
@@ -85,7 +94,8 @@
                                         </label>
                                         <div class="col-sm-10">
                                             <input type="number" class="form-control" name="telepon" id="telepon"
-                                                placeholder="Telepon" value="{{ old('telepon', $mahasiswa->telepon ?? '') }}" />
+                                                placeholder="Telepon"
+                                                value="{{ old('telepon', $mahasiswa->telepon ?? '') }}" />
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -94,7 +104,8 @@
                                         </label>
                                         <div class="col-sm-10">
                                             <input type="email" class="form-control" name="email" id="email"
-                                                placeholder="Email" value="{{ old('email', $mahasiswa->email ?? '') }}" />
+                                                placeholder="Email"
+                                                value="{{ old('email', $mahasiswa->email ?? '') }}" />
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -193,8 +204,8 @@
 
 {{-- Alert berhasil Edit Profile --}}
 @if (session('status'))
-<script src="{{ asset('AdminLTE') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
-<script>
+    <script src="{{ asset('AdminLTE') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script>
         Swal.fire({
             position: 'top-end',
             icon: 'success',

@@ -168,7 +168,6 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #E4F9F6;
   background-image: url("../images/bg1.jpg");
   background-position: 90%;
  
@@ -379,23 +378,60 @@ iframe {
   }
 }
 
-@media (max-width: 768px) {
-  .wrap-login100 {
-    padding: 100px 80px 33px 80px;
+@media (min-width: 769px) {
+  .container-login100 {
+    flex-direction: row; /* Susun elemen secara horizontal */
   }
 
   .login100-pic {
-    display: none;
+    width: 30%; /* Tetapkan lebar gambar */
+    margin: 0; /* Hilangkan margin tambahan */
+    text-align: left; /* Gambar tetap di kiri */
+  }
+
+  .wrap-login100 {
+    padding: 100px 150px 33px 95px; /* Pertahankan padding awal */
+    width: 900px; /* Ukuran kontainer seperti sebelumnya */
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap-login100 {
+    width: 100%; /* Lebar penuh layar */
+    max-width: 300px; /* Batasi lebar maksimum */
+    height: auto; /* Tinggi menyesuaikan isi */
+    padding: 50px 20px; /* Padding lebih kecil di mobile */
+    flex-direction: column; /* Tata letak vertikal */
+    align-items: center; /* Pusatkan elemen */
+    justify-content: center;
+  }
+
+  .login100-pic {
+    max-width: 100%; /* Sesuaikan ukuran gambar */
+    height: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-right: 7%;
+  }
+
+  .login100-pic img {
+    max-width: 80%; /* Sesuaikan ukuran gambar */
+    height: auto;
   }
 
   .login100-form {
-    width: 100%;
+    width: 90%; /* Lebar form hampir penuh */
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 576px) {
   .wrap-login100 {
-    padding: 100px 15px 33px 15px;
+    padding: 50px 10px; /* Kurangi padding lebih kecil */
+  }
+
+  .login100-pic img {
+    max-width: 60%; /* Gambar lebih kecil */
   }
 }
 

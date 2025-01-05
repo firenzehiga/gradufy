@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <link rel="stylesheet" href="{{ asset('AdminLTE') }}/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('AdminLTE') }}/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">  
@@ -24,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('edustage') }}/vendors/owl-carousel/owl.carousel.min.css" />
     <link rel="stylesheet" href="{{ asset('edustage') }}/vendors/nice-select/css/nice-select.css" />
     <link rel="stylesheet" href="{{ asset('edustage') }}/css/style.css" />
+    <link rel="stylesheet" href="{{ asset('AdminLTE') }}/dist/css/adminlte.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('Login') }}/css/sweetalert2.min.css"> 
 </head>
 
@@ -31,10 +31,10 @@
     <!--================ Start Header Menu Area =================-->
     <header class="header_area white-header">
         <div class="main_menu">
-          <nav class="navbar navbar-expand-lg navbar-light">
+          <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="index.html">
+                <a class="navbar-brand logo_h" href="index.html" style="margin-left: 4%">
                     <img src="{{ asset('edustage') }}/img/logo1.png" style="width:50px; height:50px;" alt="Logo Gradufy"/> 
                 </a>
                 <h3 style="font-size: 30px; font-weight: bold; color: #fff">GRADUFY</h3>

@@ -23,13 +23,28 @@
     <!-- main css -->
     <link rel="stylesheet" href="{{ asset('edustage') }}/css/style.css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('Login') }}/css/sweetalert2.min.css">
+    <style>
+        .header_area .navbar {
+            background: #fff;
+
+
+        }
+
+        .header_area .navbar .nav .nav-item .nav-link {
+            line-height: 40px;
+            margin-left: 0px;
+            display: block;
+            border-bottom: 2px solid #ededed33;
+            border-radius: 0px;
+        }
+    </style>
 </head>
 
 <body>
     <!--================ Start Header Menu Area =================-->
     <header class="header_area white_header">
         <div class="main_menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav class="navbar navbar-expand-lg ">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <a class="navbar-brand logo_h" href="index.html">
@@ -90,7 +105,7 @@
                             <p class="text-uppercase">
                                 Ayo segera bimbingan! ajukan jadwal melalui gradufy
                             </p>
-                            <h2 class="text-uppercase mt-4 mb-5">
+                            <h2 class="mt-4 mb-5">
                                 Selamat Datang! {{ $mahasiswa->nama }}
                             </h2>
 
@@ -118,13 +133,13 @@
             <div class="row justify-content-center">
                 <!-- Card Sesi Bimbingan -->
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="single_feature card bg-info">
+                    <div class="single_feature card bg-secondary">
                         <div class="icon mt-3">
                             <i class="fas fa-calendar-week fa-3x icon-black"></i>
                         </div>
                         <div class="desc">
                             <h4 class="mt-3 mb-2">Sesi Bimbingan Mendatang</h4>
-                            @if ($jadwalbmb || $jadwalbmb->tanggal->isToday())
+                            @if ($jadwalbmb)
                                 <p>Tanggal: {{ $jadwalbmb->tanggal->isoFormat('dddd') }}
                                     {{ $jadwalbmb->tanggal->format('Y-m-d') }}</p>
                                 <p>Jam: {{ $jadwalbmb->tanggal->format('H:i') }}</p>
@@ -145,7 +160,7 @@
                                     @endif
                                 </p>
                             @else
-                                <p class="text-center">Belum ada pengajuan bimbingan.</p>
+                                <p>Belum ada pengajuan bimbingan.</p>
                             @endif
                         </div>
                         <div class="text-center mb-3">
@@ -158,11 +173,11 @@
 
                 <!-- Card Dosen Pembimbing -->
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="single_feature card bg-info">
+                    <div class="single_feature card bg-secondary">
                         <div class="icon mt-3">
                             <i class="fas fa-user-tie fa-3x icon-black"></i>
                         </div>
-                        <div class="desc" >
+                        <div class="desc">
                             <h4 class="mt-3 mb-2">Dosen Pembimbing</h4>
                             <div class="row">
                                 <label for="" class="col-4 font-weight-bold">Nama</label>

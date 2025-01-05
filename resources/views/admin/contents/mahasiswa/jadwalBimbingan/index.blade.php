@@ -36,8 +36,8 @@
                         @endif
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body">
-                        <table id="example2" class="table table-bordered table-hover dataTable dtr-inline collapsed">
+                    <div class="card-body table-responsive">
+                        <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>No</th>
