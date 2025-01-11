@@ -221,10 +221,11 @@ Salam,
 
     public function sendMessage($nomor, $pesan)
     {
-
         // Kirim pesan ke nomor telepon mengugunakan API Wablas
         $curl = curl_init();
 		$token = "CxisAtDRxqFtW8wvyj0hbmhqvvm9IpUBVrWQWZr8c6XpVOoTPXvG9u5Y3vbzZY7m";
+        $secretKey = "4nwd9o7G";
+        $accessKey = $token.'.'.$secretKey;
 		$data = [
 			'phone'		=> $nomor,
 			'message'	=> $pesan,
@@ -232,7 +233,7 @@ Salam,
 
 		curl_setopt($curl, CURLOPT_HTTPHEADER,
 			array(
-				"Authorization: $token",
+				"Authorization: $accessKey",
 			)
 		);
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");

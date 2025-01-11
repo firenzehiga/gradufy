@@ -20,6 +20,7 @@
                     </div>
                 </div>
             </div>
+            
             <!-- /.container-fluid -->
         </section>
 
@@ -109,7 +110,8 @@
                                                     value="{{ $dosen->nip }}" disabled />
                                             </div>
                                         </div>
-                                        <form class="form-horizontal" method="POST" action="{{ route('profile.dosen.update') }}">
+                                        <form class="form-horizontal" method="POST"
+                                            action="{{ route('profile.dosen.update') }}">
                                             @csrf
                                             @method('PATCH')
                                             <div class="form-group row">

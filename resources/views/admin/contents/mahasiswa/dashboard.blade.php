@@ -24,8 +24,6 @@
     <link rel="stylesheet" href="{{ asset('edustage') }}/css/style.css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('Login') }}/css/sweetalert2.min.css">
     <style>
-
-
         .brutalist-card {
             width: 320px;
             border: 4px solid #002347;
@@ -148,33 +146,31 @@
 
         @media (max-width: 768px) {
             .brutalist-card {
-            width: 320px;
-            border: 4px solid #002347;
-            background-color: #fff;
-            padding: 1.5rem;
-            box-shadow: 10px 10px 0 #002347;
-            font-family: "Arial", sans-serif;
-            min-height: 365px;
-            margin-left: 17%;
-        }
-        
+                width: 320px;
+                border: 4px solid #002347;
+                background-color: #fff;
+                padding: 1.5rem;
+                box-shadow: 10px 10px 0 #002347;
+                font-family: "Arial", sans-serif;
+                min-height: 365px;
+                margin-left: 17%;
+            }
+
         }
 
         @media (max-width: 670px) {
             .brutalist-card {
-            width: 320px;
-            border: 4px solid #002347;
-            background-color: #fff;
-            padding: 1.5rem;
-            box-shadow: 10px 10px 0 #002347;
-            font-family: "Arial", sans-serif;
-            min-height: 365px;
-            margin-left: 7%;
-        }
-        
-        }
+                width: 320px;
+                border: 4px solid #002347;
+                background-color: #fff;
+                padding: 1.5rem;
+                box-shadow: 10px 10px 0 #002347;
+                font-family: "Arial", sans-serif;
+                min-height: 365px;
+                margin-left: 7%;
+            }
 
-        
+        }
     </style>
 </head>
 
@@ -185,7 +181,7 @@
             <nav class="navbar navbar-expand-lg  ">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="{{ route('mahasiswa.dashboard')}}">
+                    <a class="navbar-brand logo_h" href="{{ route('mahasiswa.dashboard') }}">
                         <img src="{{ asset('edustage') }}/img/logo1.png" style="width:50px; height:50px;"
                             alt="Logo gradufy" />
                     </a>
@@ -343,8 +339,9 @@
                             </div>
 
                         </div>
-                        <div class="brutalist-card__actions">
-                            <button class="brutalist-card__button brutalist-card__button--read" type="button">Relax Button</button>
+                        <div class="brutalist-card__actions" hidden>
+                            <button class="brutalist-card__button brutalist-card__button--read" type="button">Relax
+                                Button</button>
                         </div>
 
                     </div>

@@ -1,5 +1,3 @@
-
-
 @include('admin.partials.header')
 <!--================ Start Banner Area =================-->
 <section class="detail_banner_area">
