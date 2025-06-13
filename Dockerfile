@@ -36,11 +36,17 @@ COPY package.json package-lock.json ./
 # Install Node.js dependencies
 RUN npm ci --only=production
 
+
 # Copy all application code
 COPY . .
 
 # Set proper ownership before building assets
 RUN chown -R www-data:www-data /var/www/html
+
+# Install Vite globally
+RUN npm install -g vite
+
+RUN npm install
 
 # Build assets using Vite
 RUN npm run build
