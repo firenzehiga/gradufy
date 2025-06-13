@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip
 
-# Install Node.js versi 18 (atau 16+)
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs
 
@@ -37,7 +36,8 @@ RUN chmod -R 755 /var/www/html/storage \
     && chmod -R 755 /var/www/html/bootstrap/cache \
     && chmod -R 755 /var/www/html/public
 
-# ... (lanjut config Apache dan artisan cache seperti sebelumnya)
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 8080
-CMD ["apache2-foreground"]
+ENTRYPOINT ["/entrypoint.sh"]
