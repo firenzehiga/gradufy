@@ -33,9 +33,9 @@
                         Login Form
                     </span>
                     <p>
-                        <span>Admin:</span>
+                        <span>Dosen:</span>
                         <span>budi@gmail.com | 11111111</span>
-                    </p>
+                    </p><br>
 
                     <!-- Input Email -->
                     <div class="wrap-input100 validate-input " data-validate="Valid email is required: ex@abc.xyz">

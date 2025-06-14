@@ -12,6 +12,7 @@
         href="{{ asset('Login') }}/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('Login') }}/css/sweetalert2.min.css">
     <style>
+        /* Tambahkan/ubah di <style> pada register.blade.php */
         .register-container {
             max-width: 700px;
             margin: 40px auto;
@@ -19,6 +20,27 @@
             border-radius: 16px;
             box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
             padding: 40px 32px 24px 32px;
+            width: 100%;
+            box-sizing: border-box;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (max-width: 992px) {
+            .register-container {
+                padding: 18px 4vw 12px 4vw;
+                /* pakai vw agar responsif */
+                max-width: 82vw;
+                margin: 48px auto;
+                border-radius: 10px;
+            }
+
+            .register-btn {
+                padding: 10px 0;
+                font-size: 1rem;
+
+            }
         }
 
         .register-title {
@@ -32,6 +54,8 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 18px 24px;
+            padding: 0 10px;
+
         }
 
         .register-grid .full {
