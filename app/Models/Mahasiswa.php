@@ -10,7 +10,7 @@ class Mahasiswa extends Model
     use HasFactory;
 
     protected $table = 'mahasiswa'; // Nama tabel
-    protected $fillable = ['nama', 'nim', 'alamat', 'telepon', 'email'];
+    protected $fillable = ['nama', 'nim', 'alamat', 'telepon', 'email', 'jurusan', 'dosen_id'];
 
      // Relasi ke Jadwal Bimbingan
      public function jadwalBimbingan()
@@ -29,4 +29,3 @@ class Mahasiswa extends Model
     }
 
 }
-

@@ -33,13 +33,12 @@
                         Login Form
                     </span>
                     <p>
-                        <span>Admin</span>
+                        <span>Admin:</span>
+                        <span>budi@gmail.com | 11111111</span>
                     </p>
-                    <span>Email: budi@gmail.com</span>
-                    <span>Password: 11111111</span>
 
                     <!-- Input Email -->
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <div class="wrap-input100 validate-input " data-validate="Valid email is required: ex@abc.xyz">
                         <input class="input100" type="email" name="email" placeholder="Email"
                             value="{{ old('email') }}" required autofocus>
                         <span class="focus-input100"></span>
@@ -63,7 +62,15 @@
                             Login
                         </button>
                     </div>
-
+                    <div class="text-center p-t-12 mt-1">
+                        <span class="txt1">
+                            Belum punya akun (demo) ?
+                        </span>
+                        <a class="txt2" href="{{ route('register') }}">
+                            Buat Akun
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
                     {{-- <!-- Forgot Password Link -->
                     <div class="text-center p-t-12">
                         <span class="txt1">

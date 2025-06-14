@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Models\Mahasiswa;
 
 class RegisteredUserController extends Controller
 {
@@ -27,24 +28,43 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+    public function store(Request $request)
+{
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'nim' => 'required|string|max:50|unique:mahasiswa',
+        'jurusan' => 'required|string|max:100',
+        'alamat' => 'required|string|max:255',
+        'telepon' => 'required|string|max:20',
+        'email' => 'required|email',
+        'password' => 'required|string|min:6|confirmed',
+    ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+    // Simpan ke tabel mahasiswa
+    $mahasiswa = Mahasiswa::create([
+        'nama' => $request->nama,
+        'nim' => $request->nim,
+        'jurusan' => $request->jurusan,
+        'alamat' => $request->alamat,
+        'telepon' => $request->telepon,
+        'email' => $request->email,
+        'dosen_id' => 1, 
+    ]);
 
-        event(new Registered($user));
+    // Simpan ke tabel users
+    $user = User::create([
+        'mahasiswa_id' => $mahasiswa->id,
+        'email' => $mahasiswa->email,
+        'password' => Hash::make($request->password),
+        'role' => 'mahasiswa',
+        'nim' => $request->nim,
+        // 'dosen_id' => null,
+        // 'nip' => null,
+    ]);
 
-        Auth::login($user);
+    // Login otomatis (opsional)
+    // Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
-    }
+    return redirect('/')->with('success', 'Registrasi berhasil!');
+}
 }

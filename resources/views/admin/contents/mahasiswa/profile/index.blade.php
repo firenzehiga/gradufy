@@ -115,20 +115,20 @@
     @media only screen and (max-width: 900px) {
         .cardi {
 
-        width: 100%;
-        height: 254px;
-        background: var(--bg-color);
-        border: 2px solid var(--main-color);
-        box-shadow: 4px 4px var(--main-color);
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 5%;
-    }
-    
-  
+            width: 100%;
+            height: 254px;
+            background: var(--bg-color);
+            border: 2px solid var(--main-color);
+            box-shadow: 4px 4px var(--main-color);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5%;
+        }
+
+
     }
 </style>
 <!--================ Start Home Banner Area =================-->
@@ -249,8 +249,8 @@
                                         </label>
                                         <div class="col-sm-10">
                                             <input type="email" class="form-control" name="email" id="email"
-                                                placeholder="Email"
-                                                value="{{ old('email', $mahasiswa->email ?? '') }}" />
+                                                placeholder="Email" value="{{ old('email', $mahasiswa->email ?? '') }}"
+                                                disabled />
                                         </div>
                                     </div>
                                     <div class="form-group row">
