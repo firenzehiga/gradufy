@@ -32,6 +32,11 @@
                     <span class="login100-form-title">
                         Login Form
                     </span>
+                    <p>
+                        <span>Admin</span>
+                    </p>
+                    <span>Email: budi@gmail.com</span>
+                    <span>Password: 11111111</span>
 
                     <!-- Input Email -->
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
