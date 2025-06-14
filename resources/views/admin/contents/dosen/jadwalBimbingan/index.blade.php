@@ -62,6 +62,8 @@
                                                     <td><span class="badge badge-warning">Sedang Bimbingan</span></td>
                                                 @elseif ($jwb->status === 'Bimbingan Selesai')
                                                     <td><span class="badge badge-primary">Bimbingan Selesai</span></td>
+                                                @elseif ($jwb->status === 'Expired')
+                                                    <td><span class="badge badge-danger">Expired</span></td>
                                                 @else
                                                     <td><span class="badge badge-danger">Kesalahan Status</span></td>
                                                 @endif

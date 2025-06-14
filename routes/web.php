@@ -53,9 +53,10 @@ Route::middleware(['auth', 'role:dosen'])->group(function () {
     
 });
 
+// Route otomatis menggunakan cron
 Route::get('/dosen/jadwalNotifikasi/kirimReminder', [JadwalNotifikasiController::class, 'kirimReminder'])->name('dosen.jadwalNotifikasi.kirimReminder');
 Route::get('/dosen/jadwalNotifikasi/ubahStatus', [JadwalNotifikasiController::class, 'sedangBimbingan'])->name('dosen.jadwalNotifikasi.sedangBimbingan');
-
+Route::get('/dosen/jadwalNotifikasi/statusExpired', [JadwalNotifikasiController::class, 'expirePengajuan']);
 
 // Route untuk Mahasiswa
 Route::middleware(['auth', 'role:mahasiswa'])->group(function () {

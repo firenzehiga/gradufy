@@ -17,7 +17,7 @@
                 <div class="main_title">
                     <h2 class="mb-3">Pengajuan Bimbingan</h2>
                     <p>
-                        Menambahkan pengajuan hanya dapat dilakukan sekali hingga bimbingan selesai (Status:  <span
+                        Menambahkan pengajuan hanya dapat dilakukan sekali hingga bimbingan selesai (Status: <span
                             class="badge badge-info">Bimbingan Selesai</span> ).
                     </p>
                 </div>
@@ -54,19 +54,16 @@
 
                                         @if ($jwb->status === 'Menunggu Disetujui')
                                             <td><span class="badge badge-warning">Menunggu Disetujui</span></td>
-                                            
                                         @elseif ($jwb->status === 'Disetujui')
                                             <td><span class="badge badge-success">Disetujui</span></td>
-
                                         @elseif ($jwb->status === 'Jadwal Direvisi')
                                             <td><span class="badge badge-info">Jadwal Direvisi</span></td>
-
                                         @elseif ($jwb->status === 'Sedang Bimbingan')
                                             <td><span class="badge badge-warning">Sedang Bimbingan</span></td>
-
                                         @elseif ($jwb->status === 'Bimbingan Selesai')
                                             <td><span class="badge badge-primary">Bimbingan Selesai</span></td>
-
+                                        @elseif ($jwb->status === 'Expired')
+                                            <td><span class="badge badge-danger">Expired</span></td>
                                         @else
                                             <td><span class="badge badge-danger">Kesalahan Status</span></td>
                                         @endif

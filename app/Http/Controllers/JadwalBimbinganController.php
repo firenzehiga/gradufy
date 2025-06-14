@@ -40,7 +40,7 @@ class JadwalBimbinganController extends Controller
             ->first();
 
             // Cek apakah mahasiswa dapat mengajukan jadwal bimbingan
-            $canRequestBimbingan = !$jadwalTerbaru || $jadwalTerbaru->status === 'Bimbingan Selesai';
+            $canRequestBimbingan = !$jadwalTerbaru || $jadwalTerbaru->status === 'Bimbingan Selesai' || $jadwalTerbaru->status === 'Expired';
 
             
             return view('admin.contents.mahasiswa.jadwalBimbingan.index', compact('jadwalbmb','canRequestBimbingan'), [
@@ -198,7 +198,7 @@ Salam,
 
 
         // Pesan Whatssapp yang akan dikirim
-        $message = "*Subject: Reminder Jadwal Bimbingan Skripsi*
+        $message = "*Subject: Reminder Jadwal Bimbingan Skripsi ✔*
 Halo, $mahasiswa.
 
 Kami mengingatkan bahwa pengajuan bimbingan anda disetujui dengan Bapak/Ibu $dosen pada:

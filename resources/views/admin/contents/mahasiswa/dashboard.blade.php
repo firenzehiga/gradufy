@@ -275,7 +275,7 @@
                             <div class="brutalist-card__alert">Sesi Bimbingan Mendatang</div>
                         </div>
                         <div class="brutalist-card__message">
-                            @if ($jadwalbmb)
+                            @if ($jadwalbmb->status == 'Disetujui' or $jadwalbmb->status == 'Jadwal Direvisi')
                                 <p>Tanggal: {{ $jadwalbmb->tanggal->isoFormat('dddd') }}
                                     {{ $jadwalbmb->tanggal->format('Y-m-d') }}</p>
                                 <p>Jam: {{ $jadwalbmb->tanggal->format('H:i') }}</p>
@@ -291,6 +291,8 @@
                                         <span class="badge badge-warning">Sedang Bimbingan</span>
                                     @elseif ($jadwalbmb->status === 'Bimbingan Selesai')
                                         <span class="badge badge-primary">Bimbingan Selesai</span>
+                                    @elseif ($jadwalbmb->status === 'Expired')
+                                        <span class="badge badge-danger">Expired</span>
                                     @else
                                         <span class="badge badge-danger">Kesalahan Status</span>
                                     @endif

@@ -33,26 +33,29 @@
                             <div class="form-group">
                                 <label>Tanggal Bimbingan :</label>
                                 <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" name="tanggal_ajuan"
-                                        id="tanggal" data-target="#reservationdatetime" required />
-                                    <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                    <input type="text" class="form-control datetimepicker-input"
+                                        placeholder="Pilih Tanggal" name="tanggal_ajuan" id="tanggal"
+                                        data-target="#reservationdatetime" required />
+                                    <div class="input-group-append" data-target="#reservationdatetime"
+                                        data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
-                                <span id="tanggalError" class="text-danger" style="display: none;">Tanggal harus lebih dari hari ini.</span>
+                                <span id="tanggalError" class="text-danger" style="display: none;">Tanggal harus lebih
+                                    dari hari ini.</span>
                             </div>
                             <div class="form-group">
-                                <label >Deskripsi</label>
-                                <textarea name="deskripsi" id="deskripsi" class="form-control" minlength="10" required></textarea>
+                                <label>Deskripsi</label>
+                                <textarea name="deskripsi" id="deskripsi" placeholder="Masukkan Deskripsi" class="form-control" minlength="10" required></textarea>
                             </div>
-                            <!-- /.form group -->                         
+                            <!-- /.form group -->
                     </div>
 
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-info float-left col-lg-3" >Kirim</button>
+                        <button type="submit" class="btn btn-info float-left col-lg-3">Kirim</button>
                         </form>
-                        
+
                         <a href="/jadwalBimbingan" class="btn btn-danger float-right">Kembali</a>
                     </div>
                     <!-- /.card-footer -->
@@ -82,26 +85,28 @@
             }
         });
     }
-  </script>
+</script>
 
 <script>
     // Set min date to today for the input field
     document.addEventListener('DOMContentLoaded', function() {
         var today = new Date().toISOString().split('T')[0];
         document.getElementById('tanggal').setAttribute('min', today);
-        
+
         // Validasi saat form dikirim
         document.getElementById('pengajuanForm').addEventListener('submit', function(event) {
             var selectedDate = document.getElementById('tanggal').value;
             var currentDate = new Date().toISOString().split('T')[0];
-            
+
             // Jika tanggal yang dipilih lebih kecil dari hari ini
             if (selectedDate < currentDate) {
-                event.preventDefault();  // Mencegah pengiriman form
-                document.getElementById('tanggalError').style.display = 'block';  // Menampilkan pesan error
+                event.preventDefault(); // Mencegah pengiriman form
+                document.getElementById('tanggalError').style.display =
+                    'block'; // Menampilkan pesan error
             } else {
-                document.getElementById('tanggalError').style.display = 'none';  // Menyembunyikan pesan error jika valid
+                document.getElementById('tanggalError').style.display =
+                    'none'; // Menyembunyikan pesan error jika valid
             }
         });
     });
-    </script>
+</script>

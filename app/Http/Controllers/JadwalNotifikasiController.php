@@ -55,7 +55,7 @@ class JadwalNotifikasiController extends Controller
             $selisiHari = $selisihTanggal / 86400;
 
             if ($selisiHari == 0) {
-                $pesan = "*Subject: Daily Reminder Jadwal Bimbingan*
+                $pesan = "*Subject: Daily Reminder Jadwal Bimbingan⚠*
 Halo, $mahasiswa.
 
 Hari ini jadwal bimbingan anda akan dimulai. Harap hadir tepat waktu. Jika ada kendala, segera informasikan kepada dosen pembimbing Anda.
@@ -101,7 +101,9 @@ Salam,
 
         // Kirim pesan ke nomor telepon mengugunakan API Wablas
         $curl = curl_init();
-		$token = "CxisAtDRxqFtW8wvyj0hbmhqvvm9IpUBVrWQWZr8c6XpVOoTPXvG9u5Y3vbzZY7m";
+		$token = "39UkEbGICVD68BAzSR8pi6cpQYRdjhydk6n8prXg9a4fWVv5Mjgye9y";
+        $secretKey = "cojhYlSM";
+        $accessKey = $token.'.'.$secretKey;
 		$data = [
 			'phone'		=> $nomor,
 			'message'	=> $pesan,
@@ -109,7 +111,7 @@ Salam,
 
 		curl_setopt($curl, CURLOPT_HTTPHEADER,
 			array(
-				"Authorization: $token",
+				"Authorization: $accessKey",
 			)
 		);
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
@@ -150,6 +152,40 @@ Salam,
 
         return redirect()->route('dosen.jadwalBimbingan');
     }
+    /**
+ * Mengubah status jadwal yang sudah lewat dan belum disetujui menjadi "Expired"
+ * Bisa dipanggil otomatis via endpoint untuk Cloud Scheduler
+ */
+public function expirePengajuan()
+{
+    // Ambil semua pengajuan yang expired
+    $expiredJadwal = JadwalNotifikasi::where('status', 'Menunggu Disetujui')
+        ->whereDate('tanggal', '<', now()->toDateString())
+        ->get();
+
+    foreach ($expiredJadwal as $jadwal) {
+        $mahasiswa = $jadwal->mahasiswa;
+        if ($mahasiswa) {
+            $message = "*Subject: Pengajuan Bimbingan Expired❗*
+Halo, $mahasiswa->nama.
+
+Pengajuan bimbingan kamu pada tanggal " . $jadwal->tanggal->format('d-m-Y') . " telah expired karena belum disetujui dosen.
+
+Silakan ajukan ulang jadwal bimbingan melalui sistem Gradufy.
+
+Terima kasih.
+[Tim Reminder Gradufy]";
+
+            $this->sendMessage($mahasiswa->telepon, $message);
+        }
+
+        // (Opsional) Update status jadwal jadi expired
+        $jadwal->status = 'Expired';
+        $jadwal->save();
+    }
+
+    return redirect()->route('dosen.jadwalBimbingan');
+}
 
 
 
