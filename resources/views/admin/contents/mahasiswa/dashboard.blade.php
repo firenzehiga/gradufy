@@ -275,7 +275,7 @@
                             <div class="brutalist-card__alert">Sesi Bimbingan Mendatang</div>
                         </div>
                         <div class="brutalist-card__message">
-                            @if ($jadwalbmb && ($jadwalbmb->status == 'Disetujui' || $jadwalbmb->status == 'Jadwal Direvisi'))
+                            @if ($jadwalbmb && ($jadwalbmb->status !== 'Menunggu Disetujui' || $jadwalbmb->status == 'Expired'))
                                 <p>Tanggal: {{ $jadwalbmb->tanggal->isoFormat('dddd') }}
                                     {{ $jadwalbmb->tanggal->format('Y-m-d') }}</p>
                                 <p>Jam: {{ $jadwalbmb->tanggal->format('H:i') }}</p>
@@ -288,7 +288,33 @@
                                     @elseif ($jadwalbmb->status === 'Jadwal Direvisi')
                                         <span class="badge badge-info">Jadwal Direvisi</span>
                                     @elseif ($jadwalbmb->status === 'Sedang Bimbingan')
-                                        <span class="badge badge-warning">Sedang Bimbingan</span>
+                                        <span class="badge bg-warning text-dark"
+                                            style="display: inline-flex; align-items: center;">
+                                            <span
+                                                style="
+                                            display: inline-block;
+                                            width: 10px;
+                                            height: 10px;
+                                            background: #ff2d2d;
+                                            border-radius: 50%;
+                                            margin-right: 7px;
+                                            box-shadow: 0 0 8px #ff2d2d;
+                                            animation: live-blink 1s infinite alternate;
+                                        "></span>
+                                            Sedang Bimbingan
+                                        </span>
+
+                                        <style>
+                                            @keyframes live-blink {
+                                                0% {
+                                                    opacity: 1;
+                                                }
+
+                                                100% {
+                                                    opacity: 0.4;
+                                                }
+                                            }
+                                        </style>
                                     @elseif ($jadwalbmb->status === 'Bimbingan Selesai')
                                         <span class="badge badge-primary">Bimbingan Selesai</span>
                                     @elseif ($jadwalbmb->status === 'Expired')
