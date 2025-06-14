@@ -275,7 +275,7 @@
                             <div class="brutalist-card__alert">Sesi Bimbingan Mendatang</div>
                         </div>
                         <div class="brutalist-card__message">
-                            @if ($jadwalbmb->status == 'Disetujui' or $jadwalbmb->status == 'Jadwal Direvisi')
+                            @if ($jadwalbmb && ($jadwalbmb->status == 'Disetujui' || $jadwalbmb->status == 'Jadwal Direvisi'))
                                 <p>Tanggal: {{ $jadwalbmb->tanggal->isoFormat('dddd') }}
                                     {{ $jadwalbmb->tanggal->format('Y-m-d') }}</p>
                                 <p>Jam: {{ $jadwalbmb->tanggal->format('H:i') }}</p>
