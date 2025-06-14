@@ -55,7 +55,7 @@ class JadwalNotifikasiController extends Controller
             $selisiHari = $selisihTanggal / 86400;
 
             if ($selisiHari == 0) {
-                $pesan = "*Subject: Daily Reminder Jadwal Bimbingan⚠*
+                $pesan = "*Subject: Daily Reminder Jadwal Bimbingan ⚠*
 Halo, $mahasiswa.
 
 Hari ini jadwal bimbingan anda akan dimulai. Harap hadir tepat waktu. Jika ada kendala, segera informasikan kepada dosen pembimbing Anda.
@@ -93,7 +93,7 @@ Salam,
 
         }
 
-        return redirect()->route('dosen.jadwalNotifikasi');
+        return response('Reminder jadwal selesai dijalankan.', 200);
     }
 
     public function sendMessage($nomor, $pesan)
@@ -150,7 +150,7 @@ Salam,
         }
 
 
-        return redirect()->route('dosen.jadwalBimbingan');
+        return response('Status Sedang Bimbingan selesai dijalankan.', 200);
     }
     /**
  * Mengubah status jadwal yang sudah lewat dan belum disetujui menjadi "Expired"
@@ -184,7 +184,7 @@ Terima kasih.
         $jadwal->save();
     }
 
-    return redirect()->route('dosen.jadwalBimbingan');
+    return response('Reminder expired selesai dijalankan.', 200);
 }
 
 
