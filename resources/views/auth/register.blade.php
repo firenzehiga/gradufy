@@ -136,7 +136,8 @@
                 </div>
                 <div class="register-input">
                     <i class="fa fa-phone"></i>
-                    <input type="text" name="telepon" placeholder="Telepon" value="{{ old('telepon') }}" required>
+                    <input type="text" name="telepon" placeholder="Telepon Aktif (Cth: 08123456789)"
+                        value="{{ old('telepon') }}" required>
                 </div>
                 <div class="register-input">
                     <i class="fa fa-envelope"></i>
