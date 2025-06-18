@@ -152,7 +152,12 @@
                 </div>
                 <div class="register-input">
                     <i class="fa fa-graduation-cap"></i>
-                    <input type="text" name="jurusan" placeholder="Jurusan" value="{{ old('jurusan') }}" required>
+                    <select name="jurusan" required style="width: 100%; padding: 10px 16px 10px 40px; border-radius: 24px; border: 1px solid #eee; background: #f3f3f3; font-size: 1rem; outline: none;">
+                        <option value="" disabled {{ old('jurusan') ? '' : 'selected' }}>Pilih Jurusan</option>
+                        <option value="Teknik Informatika" {{ old('jurusan') == 'Teknik Informatika' ? 'selected' : '' }}>Teknik Informatika</option>
+                        <option value="Sistem Informasi" {{ old('jurusan') == 'Sistem Informasi' ? 'selected' : '' }}>Sistem Informasi</option>
+                        <option value="Bisnis Digital" {{ old('jurusan') == 'Bisnis Digital' ? 'selected' : '' }}>Bisnis Digital</option>
+                    </select>
                 </div>
                 <div class="register-input">
                     <i class="fa fa-home"></i>
